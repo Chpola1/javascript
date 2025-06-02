@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ввод числа</title>
+    <script>
+        function getNumber() {
+            while (true) {
+                const input = prompt("Введите число больше 100:");
+                if (input === null) {
+                    if (confirm("Вы действительно хотите отменить?")) {
+                        break;
+                    }
+                } else if (parseInt(input) > 100) {
+                    window.location.href = "index.html"; // Замените на вашу главную страницу
+                    break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Ввод числа</h1>
+    <a href="#" onclick="getNumber(); return false;">Получить число</a>
+</body>
+</html>
