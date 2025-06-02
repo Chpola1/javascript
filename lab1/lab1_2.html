@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Считать ворон</title>
+    <script>
+        function countCrows() {
+            const num = parseInt(document.getElementById('num').value);
+            let message = '';
+
+            if (num === 1) {
+                message = "На ветке сидит 1 ворона";
+            } else if (num >= 2 && num <= 4) {
+                message = "На ветке сидит " + num + " вороны";
+            } else {
+                message = "На ветке сидит " + num + " ворон";
+            }
+
+            alert(message);
+        }
+    </script>
+</head>
+<body>
+    <h1>Считать ворон</h1>
+    <form onsubmit="event.preventDefault(); countCrows();">
+        <label for="num">Введите число:</label>
+        <input type="number" id="num" required>
+        <button type="submit">Считать</button>
+    </form>
+</body>
+</html>
