@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица</title>
+    <script>
+        function drawTable() {
+            const rows = parseInt(document.getElementById('rows').value);
+            let table = '';
+
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < 6; j++) {
+                    if (j < 3) {
+                        table += 'dog\t';
+                    } else {
+                        table += 'cat\t';
+                    }
+                }
+                console.log(table.trim());
+                table = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Таблица</h1>
+    <form onsubmit="event.preventDefault(); drawTable();">
+        <label for="rows">Введите количество строк:</label>
+        <input type="number" id="rows" required>
+        <button type="submit">Рисовать</button>
+    </form>
+</body>
+</html>
