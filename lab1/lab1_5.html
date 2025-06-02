@@ -6,18 +6,17 @@
     <script>
         function drawTable() {
             const rows = parseInt(document.getElementById('rows').value);
-            let table = '';
-
+            
             for (let i = 0; i < rows; i++) {
+                let table = ''; // Инициализация переменной table для каждой строки
                 for (let j = 0; j < 6; j++) {
                     if (j < 3) {
-                        table += 'dog\t';
+                        table += 'dog\t'; // Добавляем "dog" для первых трех элементов
                     } else {
-                        table += 'cat\t';
+                        table += 'cat\t'; // Добавляем "cat" для последних трех элементов
                     }
                 }
-                console.log(table.trim());
-                table = '';
+                console.log(table.trim()); // Выводим строку в консоль
             }
         }
     </script>
