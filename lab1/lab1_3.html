@@ -2,25 +2,65 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ввод числа</title>
-    <script>
-        function getNumber() {
-            while (true) {
-                const input = prompt("Введите число больше 100:");
-                if (input === null) {
-                    if (confirm("Вы действительно хотите отменить?")) {
-                        break;
-                    }
-                } else if (parseInt(input) > 100) {
-                    window.location.href = "../index.html";
-                    break;
-                }
-            }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
         }
-    </script>
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <h1>Ввод числа</h1>
-    <a href="#" onclick="getNumber(); return false;">Получить число</a>
+    <p>Нажмите на ссылку ниже, чтобы ввести число больше 100</p>
+
+    <a href="https://rustykc.github.io/javascript/" id="numberLink">Получить число</a>
+
+    <script>
+        "use strit";
+        document.getElementById('numberLink').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            let input;
+            while (true) {
+                input = prompt("Пожалуйста, введите число больше 100:", "");
+
+                if (input === null) {
+                    const shouldProceed = confirm("Вы уверены, что хотите перейти без ввода числа?");
+                    if (shouldProceed) {
+                        window.location.href = this.href;
+                    }
+                    return;
+                }
+
+                input = input.trim();
+                if (/^\d+$/.test(input)) {
+                    const num = Number(input);
+                    if (num > 100) {
+                        window.location.href = this.href;
+                        return;
+                    }
+                }
+
+                alert("Ошибка: введите корректное число больше 100");
+            }
+        });
+    </script>
 </body>
 </html>
